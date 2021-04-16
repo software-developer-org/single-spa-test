@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/software-developer-org/single-spa-test/issues"
   },
-  "homepage": "https://github.com/software-developer-org/single-spa-test#readme"
+  "homepage": "https://github.com/software-developer-org/single-spa-test#readme",
+  "dependencies": {
+    "single-spa": "^5.9.2"
+  }
 }
