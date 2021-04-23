@@ -9,7 +9,7 @@ import microfrontendLayout from "./microfrontend-layout.html";
 registerApplication(
   "angular-generator",
   () => System.import("angular-generator"),
-  (location) => location.pathname.startsWith("/")
+  (location) => location.pathname.startsWith("/angular")
 );
 
 start();
