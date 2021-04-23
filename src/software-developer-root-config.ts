@@ -6,13 +6,12 @@ import {
 } from "single-spa-layout";
 import microfrontendLayout from "./microfrontend-layout.html";
 
+// register angular application in rootconfig
 registerApplication(
   "angular-generator",
   () => System.import("angular-generator"),
-  (location) => location.pathname.startsWith("/angular")
+  (location) => location.pathname.startsWith("/angular") // route for your application
 );
-
-start();
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
