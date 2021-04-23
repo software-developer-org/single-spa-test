@@ -62,3 +62,60 @@ registerApplication(
 ```
 
 For more information check the [single-spa docs](https://single-spa.js.org/docs/getting-started-overview#quick-start)
+
+## Create a Angular Microfrontend
+
+These steps are needed to create and use a angular application in your single-spa root config
+
+### Create Angular Application
+
+You can create a new application for single-spa in two ways:
+
+-Use the single-spa cli and choose angular as a framework
+
+```bash
+npx create-single-spa --moduleType app-parcel
+```
+
+-Use the angular cli and add single-spa
+
+```bash
+ng new <application-name> --routing --prefix <application-name>
+ng add single-spa-angular
+```
+
+It is important to use the prefix option if you are using more then one angular appliaction to avoid namspace conflicts
+
+### ADD Router Configuration
+
+In the angular router you have to set a baseroute in your app-routing.module.ts
+
+```Typescript
+....
+// single-spa configuration: https://single-spa.js.org/docs/ecosystem-angular#configure-routes
+
+const routes: Routes = [
+  { path: '**', component: EmptyRouteComponent } // part of single-spa configuration
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }] // part of single-spa configuration
+})
+....
+```
+
+### BrowserAnimationsModule
+
+If you use the BrowserAnimationsModule you have to import it into your app.module.ts to prefend unmounting errors in your single-spa application.
+
+```typescript
+....
+ imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+....
+```
