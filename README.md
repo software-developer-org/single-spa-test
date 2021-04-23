@@ -110,6 +110,8 @@ const routes: Routes = [
 
 If you use the BrowserAnimationsModule you have to import it into your app.module.ts to prefend unmounting errors in your single-spa application.
 
+- source: https://github.com/mdsmith00/single-spa-module-federation-react-and-angular/commit/c618be67c4651ccd985db4cbb7cebfd19f5004b4
+
 ```typescript
 ....
  imports: [
